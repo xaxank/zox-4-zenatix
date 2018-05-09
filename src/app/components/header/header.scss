@@ -1,0 +1,21 @@
+.header {
+
+    background:#bad5e2;
+    color:#6b474b;
+
+    .logo {
+        width: 30px;
+        margin: 10px 15px;
+    }
+
+    .login-info {
+        float: right;
+        padding: 5px;
+
+        span {
+            margin: 5px;
+            display: block;
+        }
+    }
+
+}
