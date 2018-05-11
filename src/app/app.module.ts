@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header';
 import { DashboardComponent } from './dashboard/dashboard';
 import { InstagramComponent } from './instagram/instagram';
-import { FacebookComponent } from './facebook/facebook';
 import { TwitterComponent } from './twitter/twitter';
 
 
@@ -20,7 +19,6 @@ import { TwitterComponent } from './twitter/twitter';
     HeaderComponent,
     DashboardComponent,
     InstagramComponent,
-    FacebookComponent,
     TwitterComponent,
     
   ],

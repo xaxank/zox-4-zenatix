@@ -1,1 +1,169 @@
-<div>Twitter</div>
+<div class="operations">
+    <mat-chip-list>
+        <mat-chip selected="true" (click)="createQuery()"> Select Filters </mat-chip>
+        <mat-chip selected="true" (click)="manageGroup()"> Manage Groups </mat-chip>
+        <mat-chip selected="true"> TBD </mat-chip>
+    </mat-chip-list>
+</div>
+
+
+<div class="card-container" *ngFor="let item of postStats">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{ item.userName }}</mat-card-title>
+            <mat-card-subtitle>{{ item.handle }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                {{ item.tweet.substring(0,140) }}...
+            </p>
+        </mat-card-content>
+        <img *ngIf="item.image" mat-card-image src="{{ item.image }}" alt="Photo of a Shiba Inu">
+        <mat-card-actions>
+            <div class="stats">
+                <label>
+                    <i class="fa fa-heart"></i>: </label>
+                <span>{{ item.like }}</span>
+                <label>
+                    <i class="fa fa-retweet"></i>: </label>
+                <span>{{ item.retweet }}</span>
+                <label>
+                    <i class="fa fa-comment"></i>: </label>
+                <span>{{ item.comment }}</span>
+                <span class="show-more" (click)="showDetails(item.postId)">See more ...</span>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+
+<div class="side-panel" [ngClass]="{ 'show' : postId }">
+    <span class="cancel-btn" (click)="resetData()">
+        <i class="fa fa-times"></i>
+    </span>
+    <h2>Post Details</h2>
+    <div *ngIf="postId">
+        <div class="details" ngModel>
+            <table>
+                <thead>
+                    <td style="width:25%;"></td>
+                    <td></td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>Username </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.userName"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Handle </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.handle"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Tweet </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.tweet.substring(0,140)"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Likes </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.like"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Retweets </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.retweet"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Comments </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.comment"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Tags </label>
+                        </td>
+                        <td>
+                            <span>
+                                <mat-chip-list>
+                                    <mat-chip *ngFor="let tag of detailItem.tags" selected="true" [innerHtml]="tag"></mat-chip>
+                                </mat-chip-list>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Media </label>
+                        </td>
+                        <td>
+                            <img src="{{ detailItem.image }}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="side-panel" [ngClass]="{ 'show' : filterQuery.source }">
+    <span class="cancel-btn" (click)="resetData()">
+        <i class="fa fa-times"></i>
+    </span>
+    <h2>Create Query</h2>
+    <div *ngIf="filterQuery.source">
+        <div class="details">
+            <table>
+                <thead>
+                    <td style="width:25%;"></td>
+                    <td></td>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>Source </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="filterQuery.source"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="side-panel" [ngClass]="{ 'show' : group.source }">
+    <span class="cancel-btn" (click)="resetData()">
+        <i class="fa fa-times"></i>
+    </span>
+    <h2 [innerHtml]=" group.source + ': Manage Groups'"> </h2>
+
+    <div class="tabs">
+        <span [ngClass]="{ 'active' : act == 'eg' }" (click)="act='eg'">Edit Group</span>
+        <span [ngClass]="{ 'active' : act == 'cg' }" (click)="act='cg'">Create New Group</span>
+    </div>
+
+    <div [hidden]="act!='cg'"> Create group : Extend After Discussion </div>
+    <div [hidden]="act!='eg'"> Edit group : Extend After Discussion </div>
+
+</div>
