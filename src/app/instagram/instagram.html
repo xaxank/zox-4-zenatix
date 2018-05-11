@@ -1,0 +1,43 @@
+<mat-grid-list cols="4" rowHeight="600px">
+    <mat-grid-tile *ngFor="let item of postStats">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ item.userName }}</mat-card-title>
+                <mat-card-subtitle>{{ item.type }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{ item.image }}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    {{ item.content }}
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="stats">
+                    <label>Likes : </label>
+                    <span>{{ item.like }}</span>
+                    <br>
+                    <label>Shares : </label>
+                    <span>{{ item.share }}</span>
+                    <br>
+                    <label>Comments : </label>
+                    <span>{{ item.comment }}</span>
+                </div>
+                <button (click)="showDetails(item.postId)">See more ...</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<div class="side-detail-panel" [ngClass]="{ 'show' : postId }">
+    <span class="cancel-btn" (click)=" postId=0 ">
+        <i class="fa fa-times"></i>
+    </span>
+    <div>
+
+    </div>
+</div>
+
+<div class="side-filter-panel" [ngClass]="{ 'show' : filterQuery }">
+    <button class="cancel-btn" (click)=" filterQuery='' "> <i class="fa fa-times"></i></button>
+</div>

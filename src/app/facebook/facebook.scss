@@ -1,0 +1,37 @@
+.card-container {
+    width: 20%;
+    min-width: 200px;
+    max-width: 300px;
+    display: inline-block;
+    margin: 1%;
+}
+.example-card {
+    font-size: .7rem;
+}
+  
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.side-detail-panel, .side-filter-panel {
+    position: absolute;
+    top: 53px;
+    right: -40%;
+    background: white;
+    box-shadow: 2px 5px 6px 3px #afafae;
+    width: 40%;
+    height: 100%;
+    transition: 300ms ease-in all;
+
+    .cancel-btn {
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        cursor: pointer;
+    }
+}
+
+.side-detail-panel.show, .side-filter-panel.show {
+    right: 0;
+}
