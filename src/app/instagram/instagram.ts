@@ -9,7 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 @Component({
   selector: 'app-instagram',
   templateUrl: './instagram.html',
-  styleUrls: ['./instagram.scss']
+  styleUrls: ['../app.component.scss']
 })
 export class InstagramComponent implements OnInit {
 
@@ -37,7 +37,7 @@ export class InstagramComponent implements OnInit {
         'image': 'https://material.angular.io/assets/img/examples/shiba2.jpg',
         'caption': ' The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.',
         'tags': ['dog', 'japan', 'hunting', 'dogsofinstagram','dogsofjapan','petsoninstagram','moretags'],
-        'like': 15, 'share': 3, 'comment': 5
+        'like': 15, 'repost': 3, 'comment': 5
       },
       {
         'postId': 2,
@@ -48,7 +48,7 @@ export class InstagramComponent implements OnInit {
         'image': 'https://material.angular.io/assets/img/examples/shiba2.jpg',
         'caption': ' The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.',
         'tags': ['dog', 'japan', 'hunting', 'dogsofinstagram','dogsofjapan','petsoninstagram','moretags'],
-        'like': 15, 'share': 3, 'comment': 5
+        'like': 15, 'repost': 3, 'comment': 5
       },
       {
         'postId': 3,
@@ -59,7 +59,7 @@ export class InstagramComponent implements OnInit {
         'image': 'https://material.angular.io/assets/img/examples/shiba2.jpg',
         'caption': ' The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.',
         'tags': ['dog', 'japan', 'hunting', 'dogsofinstagram','dogsofjapan','petsoninstagram','moretags'],
-        'like': 15, 'share': 3, 'comment': 5
+        'like': 15, 'repost': 3, 'comment': 5
       },
       {
         'postId': 4,
@@ -70,7 +70,7 @@ export class InstagramComponent implements OnInit {
         'image': 'https://material.angular.io/assets/img/examples/shiba2.jpg',
         'caption': ' The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.',
         'tags': ['dog', 'japan', 'hunting', 'dogsofinstagram','dogsofjapan','petsoninstagram','moretags'],
-        'like': 15, 'share': 3, 'comment': 5
+        'like': 15, 'repost': 3, 'comment': 5
       },
       {
         'postId': 5,
@@ -81,7 +81,7 @@ export class InstagramComponent implements OnInit {
         'image': 'https://material.angular.io/assets/img/examples/shiba2.jpg',
         'caption': ' The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.',
         'tags': ['dog', 'japan', 'hunting', 'dogsofinstagram','dogsofjapan','petsoninstagram','moretags'],
-        'like': 15, 'share': 3, 'comment': 5
+        'like': 15, 'repost': 3, 'comment': 5
       },
       {
         'postId': 6,
@@ -92,7 +92,7 @@ export class InstagramComponent implements OnInit {
         'image': 'https://material.angular.io/assets/img/examples/shiba2.jpg',
         'caption': ' The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.',
         'tags': ['dog', 'japan', 'hunting', 'dogsofinstagram','dogsofjapan','petsoninstagram','moretags'],
-        'like': 15, 'share': 3, 'comment': 5
+        'like': 15, 'repost': 3, 'comment': 5
       },
     ]
   }

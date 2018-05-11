@@ -9,7 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 @Component({
   selector: 'app-twitter',
   templateUrl: './twitter.html',
-  styleUrls: ['./twitter.scss']
+  styleUrls: ['../app.component.scss']
 })
 export class TwitterComponent implements OnInit {
   title = 'Twitter Board';

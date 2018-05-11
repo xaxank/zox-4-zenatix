@@ -22,16 +22,17 @@
         </mat-card-content>
         <mat-card-actions>
             <div class="stats">
-                <label>Likes : </label>
+                <label>
+                    <i class="fa fa-heart"></i>: </label>
                 <span>{{ item.like }}</span>
-                <br>
-                <label>Shares : </label>
-                <span>{{ item.share }}</span>
-                <br>
-                <label>Comments : </label>
+                <label>
+                    <i class="fa fa-retweet"></i>: </label>
+                <span>{{ item.repost }}</span>
+                <label>
+                    <i class="fa fa-comment"></i>: </label>
                 <span>{{ item.comment }}</span>
+                <span class="show-more" (click)="showDetails(item.postId)">See more ...</span>
             </div>
-            <button (click)="showDetails(item.postId)">See more ...</button>
         </mat-card-actions>
     </mat-card>
 </div>
@@ -59,21 +60,21 @@
                         </td>
                     </tr>
                     <tr>
-                            <td>
-                                <label>Followers </label>
-                            </td>
-                            <td>
-                                <span [innerHtml]="detailItem.followers"></span>
-                            </td>
-                        </tr>
-                        <tr>
-                                <td>
-                                    <label>Following </label>
-                                </td>
-                                <td>
-                                    <span [innerHtml]="detailItem.following"></span>
-                                </td>
-                            </tr>
+                        <td>
+                            <label>Followers </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.followers"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Following </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.following"></span>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <label>User Type </label>
@@ -100,10 +101,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <label>Shares </label>
+                            <label>Repost </label>
                         </td>
                         <td>
-                            <span [innerHtml]="detailItem.share"></span>
+                            <span [innerHtml]="detailItem.repost"></span>
                         </td>
                     </tr>
                     <tr>
@@ -131,7 +132,7 @@
                             <label>Media </label>
                         </td>
                         <td>
-                            <img src="{{ detailItem.image }}"/>
+                            <img src="{{ detailItem.image }}" />
                         </td>
                     </tr>
                 </tbody>
