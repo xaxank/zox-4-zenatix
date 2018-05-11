@@ -1,3 +1,13 @@
+.operations {
+    padding: 10px;
+
+    mat-chip {
+        background:#49927f;
+        margin: 0 0 8px 8px;
+    }
+}
+
+
 .card-container {
     width: 20%;
     min-width: 200px;
@@ -5,6 +15,7 @@
     display: inline-block;
     margin: 1%;
 }
+
 .example-card {
     font-size: .7rem;
 }
@@ -14,8 +25,8 @@
     background-size: cover;
 }
 
-.side-detail-panel, .side-filter-panel {
-    position: absolute;
+.side-panel {
+    position: fixed;
     top: 53px;
     right: -40%;
     background: white;
@@ -24,14 +35,51 @@
     height: 100%;
     transition: 300ms ease-in all;
 
+    h2 {
+        margin-left: 20px;
+    }
+
+    .tabs {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+
+        span {
+            padding: 10px;
+            margin: 0;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            background: #eeeeee;
+            color: #8484c3;
+        }
+
+        span.active {
+            background: dodgerblue;
+            color: white;
+        }
+    }
+
     .cancel-btn {
         position: absolute;
         right: 15px;
         top: 10px;
         cursor: pointer;
     }
+
+    td {
+        padding: 20px;
+    }
+
+    mat-chip {
+        background:#dddddd;
+        margin: 0 0 8px 8px;
+    }
 }
 
-.side-detail-panel.show, .side-filter-panel.show {
+.side-panel > *{
+    margin-left: 20px;
+}
+
+.side-panel.show{
     right: 0;
 }
