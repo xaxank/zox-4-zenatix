@@ -17,8 +17,12 @@ export class FacebookComponent implements OnInit {
   postStats = []
   postId = 0;
   detailItem = {};
-  filterQuery = {};
-  group = {};
+  filterQuery = {
+    'source':''
+  };
+  group = {
+    'source':''
+  };
   act = 'eg';
 
   ngOnInit() {
@@ -89,19 +93,23 @@ export class FacebookComponent implements OnInit {
   resetData() {
     this.postId = 0;
     this.detailItem = {};
-    this.filterQuery = {};
-    this.group = {};    
+    this.filterQuery = {
+      'source':''
+    };
+    this.group = {
+      'source':''
+    };    
   }
 
   createQuery() {
     this.resetData();
-    this.filterQuery = { 'source': 'facebook' }
+    this.filterQuery.source= 'Facebook';
   }
 
   manageGroup() {
     this.resetData();
     this.act = 'eg';
-    this.group = {'source':'Facebook'}
+    this.group.source = 'Facebook';
   }
 
 }

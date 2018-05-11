@@ -121,7 +121,7 @@
     <i class="fa fa-times"></i>
   </span>
   <h2>Create Query</h2>
-  <div>
+  <div *ngIf="filterQuery.source">
     <div class="details">
       <table>
         <thead>
@@ -134,7 +134,7 @@
               <label>Source </label>
             </td>
             <td>
-              <span>{{ filterQuery.source }}</span>
+              <span [innerHtml]="filterQuery.source"></span>
             </td>
           </tr>
         </tbody>
@@ -147,7 +147,7 @@
   <span class="cancel-btn" (click)="resetData()">
     <i class="fa fa-times"></i>
   </span>
-  <h2>{{ group.source }} : Manage Groups </h2>
+  <h2 [innerHtml]=" group.source + ': Manage Groups'" >  </h2>
 
   <div class="tabs">
     <span [ngClass]="{ 'active' : act == 'eg' }" (click)="act='eg'">Edit Group</span>
