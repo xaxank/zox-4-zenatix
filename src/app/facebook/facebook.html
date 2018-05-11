@@ -55,7 +55,7 @@
               <label>Username </label>
             </td>
             <td>
-              <span>{{ detailItem.userName }}</span>
+              <span [innerHtml]="detailItem.userName"></span>
             </td>
           </tr>
           <tr>
@@ -63,7 +63,7 @@
               <label>User Type </label>
             </td>
             <td>
-              <span>{{ detailItem.type }}</span>
+              <span [innerHtml]="detailItem.type"></span>
             </td>
           </tr>
           <tr>
@@ -71,7 +71,7 @@
               <label>Content </label>
             </td>
             <td>
-              <span>{{ detailItem.content }}</span>
+              <span [innerHtml]="detailItem.content"></span>
             </td>
           </tr>
           <tr>
@@ -79,7 +79,7 @@
               <label>Likes </label>
             </td>
             <td>
-              <span>{{ detailItem.like }}</span>
+              <span [innerHtml]="detailItem.like"></span>
             </td>
           </tr>
           <tr>
@@ -87,7 +87,7 @@
               <label>Shares </label>
             </td>
             <td>
-              <span>{{ detailItem.share }}</span>
+              <span [innerHtml]="detailItem.share"></span>
             </td>
           </tr>
           <tr>
@@ -95,7 +95,7 @@
               <label>Comments </label>
             </td>
             <td>
-              <span>{{ detailItem.comment }}</span>
+              <span [innerHtml]="detailItem.comment"></span>
             </td>
           </tr>
           <tr>
@@ -103,9 +103,9 @@
               <label>Tags </label>
             </td>
             <td>
-              <span>
+              <span >
                 <mat-chip-list>
-                  <mat-chip *ngFor="let tag of detailItem.tags" selected="true">{{ tag }}</mat-chip>
+                  <mat-chip *ngFor="let tag of detailItem.tags" selected="true" [innerHtml]="tag"></mat-chip>
                 </mat-chip-list>
               </span>
             </td>
