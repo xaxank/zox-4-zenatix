@@ -13,28 +13,25 @@
 <div class="card-container" *ngFor="let item of postStats">
     <mat-card class="example-card">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{ item.userName }}</mat-card-title>
-            <mat-card-subtitle>{{ item.type }}</mat-card-subtitle>
+            <img mat-card-avatar class="example-header-image" src="{{ item.user.profile_picture }}" />
+            <mat-card-title>{{ item.user.full_name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.user.username }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="{{ item.image }}" alt="Photo of a Shiba Inu">
-        <mat-card-content>
+        <img mat-card-image src="{{ item.images.standard_resolution.url }}" alt="Photo of a Shiba Inu">
+        <mat-card-content *ngIf="item.caption">
             <p>
-                {{ item.caption }}
+                {{ item.caption.text }}
             </p>
         </mat-card-content>
         <mat-card-actions>
             <div class="stats">
                 <label>
                     <i class="fa fa-heart"></i>: </label>
-                <span>{{ item.like }}</span>
-                <label>
-                    <i class="fa fa-retweet"></i>: </label>
-                <span>{{ item.repost }}</span>
+                <span>{{ item.likes.count }}</span>
                 <label>
                     <i class="fa fa-comment"></i>: </label>
-                <span>{{ item.comment }}</span>
-                <span class="show-more" (click)="showDetails(item.postId)">See more ...</span>
+                <span>{{ item.comments.count }}</span>
+                <span class="show-more" (click)="showDetails(item.id)">See more ...</span>
             </div>
         </mat-card-actions>
     </mat-card>
@@ -56,42 +53,43 @@
                 <tbody>
                     <tr>
                         <td>
+                            <label>Full Name </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.user.full_name"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <label>Username </label>
                         </td>
                         <td>
-                            <span [innerHtml]="detailItem.userName"></span>
+                            <span [innerHtml]="detailItem.user.username"></span>
                         </td>
                     </tr>
+
                     <tr>
                         <td>
-                            <label>Followers </label>
+                            <label>Posted On </label>
                         </td>
                         <td>
-                            <span [innerHtml]="detailItem.followers"></span>
+                            <span [innerHtml]="detailItem.created_time"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="detailItem.location">
                         <td>
-                            <label>Following </label>
+                            <label>Location </label>
                         </td>
                         <td>
-                            <span [innerHtml]="detailItem.following"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>User Type </label>
-                        </td>
-                        <td>
-                            <span [innerHtml]="detailItem.type"></span>
+                            <span [innerHtml]="detailItem.location.name"></span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="detailItem.caption">
                         <td>
                             <label>Caption </label>
                         </td>
                         <td>
-                            <span [innerHtml]="detailItem.caption"></span>
+                            <span [innerHtml]="detailItem.caption.text"></span>
                         </td>
                     </tr>
                     <tr>
@@ -99,15 +97,7 @@
                             <label>Likes </label>
                         </td>
                         <td>
-                            <span [innerHtml]="detailItem.like"></span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Repost </label>
-                        </td>
-                        <td>
-                            <span [innerHtml]="detailItem.repost"></span>
+                            <span [innerHtml]="detailItem.likes.count"></span>
                         </td>
                     </tr>
                     <tr>
@@ -115,7 +105,7 @@
                             <label>Comments </label>
                         </td>
                         <td>
-                            <span [innerHtml]="detailItem.comment"></span>
+                            <span [innerHtml]="detailItem.comments.count"></span>
                         </td>
                     </tr>
                     <tr>
@@ -125,9 +115,17 @@
                         <td>
                             <span>
                                 <mat-chip-list>
-                                    <mat-chip *ngFor="let tag of detailItem.tags" selected="true" [innerHtml]="tag +'(1000)'"></mat-chip>
+                                    <mat-chip *ngFor="let tag of detailItem.tags" selected="true" [innerHtml]="tag"></mat-chip>
                                 </mat-chip-list>
                             </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Media Type </label>
+                        </td>
+                        <td>
+                            <span [innerHtml]="detailItem.type"></span>
                         </td>
                     </tr>
                     <tr>
@@ -135,7 +133,10 @@
                             <label>Media </label>
                         </td>
                         <td>
-                            <img src="{{ detailItem.image }}" />
+                            <video width="320" height="240" controls *ngIf="detailItem.type == 'video'">
+                                <source src="{{ detailItem.videos.standard_resolution.url }}" type="video/mp4"> Your browser does not support the video tag.
+                            </video>
+                            <img *ngIf="detailItem.type == 'image'" src="{{ detailItem.images.standard_resolution.url }}" />
                         </td>
                     </tr>
                 </tbody>

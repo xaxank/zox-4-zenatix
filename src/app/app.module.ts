@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from './app-routing.module';
-
+import { HttpClientModule } from "@angular/common/http";
 
 
 import { AppComponent } from './app.component';
@@ -19,16 +19,16 @@ import { TwitterComponent } from './twitter/twitter';
     HeaderComponent,
     DashboardComponent,
     InstagramComponent,
-    TwitterComponent,
-    
+    TwitterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
