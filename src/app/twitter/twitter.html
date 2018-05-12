@@ -3,7 +3,7 @@
         <mat-chip routerLink="/dashboard">
             <i class="fa fa-arrow-left"></i>
         </mat-chip>
-        <mat-chip selected="true" (click)="createQuery()"> Select Filters </mat-chip>
+        <mat-chip selected="true" (click)="createQuery()"> Create Post </mat-chip>
         <mat-chip selected="true" (click)="manageGroup()"> Manage Groups </mat-chip>
         <mat-chip selected="true"> TBD </mat-chip>
     </mat-chip-list>
@@ -132,7 +132,7 @@
     <span class="cancel-btn" (click)="resetData()">
         <i class="fa fa-times"></i>
     </span>
-    <h2>Create Query</h2>
+    <h2>Create Post</h2>
     <div *ngIf="filterQuery.source">
         <div class="details">
             <table>
