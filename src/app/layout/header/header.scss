@@ -11,10 +11,11 @@
     .login-info {
         float: right;
         padding: 5px;
+        font-size: 2rem;
 
-        span {
-            margin: 5px;
-            display: block;
+        a {
+            margin: 15px 5px;
+            // display: block;
         }
     }
 
