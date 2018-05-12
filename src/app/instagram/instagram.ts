@@ -10,6 +10,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 
 import { InstagramService } from '../instagram.service';
 
+declare var google: any;
 
 @Component({
   selector: 'app-instagram',
