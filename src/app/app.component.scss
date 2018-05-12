@@ -10,11 +10,18 @@ header {
 
 
 .operations {
-    padding: 10px;
+    margin: 10px;
+    border:1px solid #eeeeee;
 
     mat-chip {
-        background:#49927f;
-        margin: 0 0 8px 8px;
+        // background:#49927f;
+        margin: 0 !important;
+        border-radius: 0;
+        border-right: 1px solid #eeeeee;
+    }
+
+    mat-chip:hover {
+        background: aliceblue;
     }
 }
 

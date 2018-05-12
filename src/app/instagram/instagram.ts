@@ -42,7 +42,7 @@ export class InstagramComponent implements OnInit {
   }
 
   getMediaData() {
-    this.insta.fetchData().subscribe(data => { this.postStats = data.data });
+    // this.insta.fetchData().subscribe(data => { this.postStats = data.data });
   }
 
   showDetails(postId) {
