@@ -5,7 +5,7 @@
         </mat-chip>
         <mat-chip selected="true" (click)="createQuery()"> Select Filters </mat-chip>
         <mat-chip selected="true" (click)="manageGroup()"> Manage Groups </mat-chip>
-        <mat-chip selected="true"> Insights </mat-chip>
+        <mat-chip selected="true" (click)="getInsights()"> Insights </mat-chip>
     </mat-chip-list>
 </div>
 
@@ -187,3 +187,13 @@
     <div [hidden]="act!='eg'"> Edit group : Extend After Discussion </div>
 
 </div>
+
+<div class="side-panel" [ngClass]="{ 'show' : insights }">
+        <span class="cancel-btn" (click)="resetData()">
+            <i class="fa fa-times"></i>
+        </span>
+        <h2 [innerHtml]=" Instagram : Insights'"> </h2>
+    
+        <p>Locations posted from etc..</p>
+    
+    </div>

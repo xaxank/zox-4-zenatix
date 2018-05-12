@@ -30,6 +30,7 @@ export class InstagramComponent implements OnInit {
     'source': ''
   };
   act = 'eg';
+  insights = false;
 
   constructor(
     private insta: InstagramService,
@@ -42,7 +43,7 @@ export class InstagramComponent implements OnInit {
   }
 
   getMediaData() {
-    // this.insta.fetchData().subscribe(data => { this.postStats = data.data });
+    this.insta.fetchData().subscribe(data => { this.postStats = data.data });
   }
 
   showDetails(postId) {
@@ -60,6 +61,7 @@ export class InstagramComponent implements OnInit {
     this.group = {
       'source': ''
     };
+    this.insights=false;
   }
 
   createQuery() {
@@ -71,6 +73,11 @@ export class InstagramComponent implements OnInit {
     this.resetData();
     this.act = 'eg';
     this.group.source = 'Instagram';
+  }
+
+  getInsights() {
+    this.resetData();
+    this.insights = true;
   }
 
 }
