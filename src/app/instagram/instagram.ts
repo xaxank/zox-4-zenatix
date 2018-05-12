@@ -22,7 +22,7 @@ export class InstagramComponent implements OnInit {
 
   title = 'Instagram Board';
   @ViewChild('gmap') gmapElement: any;
-  map: google.maps.Map;
+  map: any;
 
   postStats = []
   postId = 0;
