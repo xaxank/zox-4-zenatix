@@ -38,12 +38,13 @@ export class InstagramComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    
     this.insta.setHeaders(this.route.snapshot.fragment);
     this.getMediaData();
   }
 
   getMediaData() {
-    this.insta.fetchData().subscribe(data => { this.postStats = data.data });
+    this.insta.fetchData().subscribe(data => { this.postStats = data.data.splice(0,5) });
   }
 
   showDetails(postId) {
