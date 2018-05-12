@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { } from '@types/googlemaps';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -19,6 +20,8 @@ import { InstagramService } from '../instagram.service';
 export class InstagramComponent implements OnInit {
 
   title = 'Instagram Board';
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
 
   postStats = []
   postId = 0;
@@ -38,13 +41,18 @@ export class InstagramComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    var mapProp = {
+      center: new google.maps.LatLng(22, 80),
+      zoom: 4,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
     this.insta.setHeaders(this.route.snapshot.fragment);
     this.getMediaData();
   }
 
   getMediaData() {
-    this.insta.fetchData().subscribe(data => { this.postStats = data.data.splice(0,5) });
+    this.insta.fetchData().subscribe(data => { this.postStats = data.data.splice(0,8) });
   }
 
   showDetails(postId) {
@@ -62,7 +70,7 @@ export class InstagramComponent implements OnInit {
     this.group = {
       'source': ''
     };
-    this.insights=false;
+    this.insights = false;
   }
 
   createQuery() {
@@ -79,6 +87,16 @@ export class InstagramComponent implements OnInit {
   getInsights() {
     this.resetData();
     this.insights = true;
+
+
+    this.postStats.forEach((post)=>{
+      if(post.location)
+      var marker = new google.maps.Marker({
+        position: {lat:post.location.latitude,lng:post.location.longitude},
+        map: this.map
+      });
+    });
+
   }
 
 }
