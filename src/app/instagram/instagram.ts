@@ -48,7 +48,7 @@ export class InstagramComponent implements OnInit {
   showDetails(postId) {
     this.resetData();
     this.postId = postId;
-    this.detailItem = this.postStats.filter((a) => a.id == postId).map((a) => { a.created_time = Date(a.created_time); return a; })[0];
+    this.detailItem = this.postStats.filter((a) => a.id == postId).map((a) => { a.created_time = new Date(a.created_time * 1000); return a; })[0];
   }
 
   resetData() {
